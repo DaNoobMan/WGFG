@@ -14,6 +14,7 @@ public class main {
         ArrayList<Integer> startingArray = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13));
         int rolledNumber = -1;
         String luckyGuess;
+        int randomInt;
 
         while (startingArray.size() > 1) {
             while (!startingArray.contains(rolledNumber)) {
@@ -44,7 +45,7 @@ public class main {
             } else if (lowerWeight > higherWeight) {
                 System.out.println("It is most likely to be lower!");
             } else {
-                int randomInt = rand.nextInt(2);
+                randomInt = rand.nextInt(2);
                 if (randomInt == 0) {
                     luckyGuess = "lower?";
                 } else {
