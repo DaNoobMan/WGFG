@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Random;
+import java.lang.Math;
 
 public class main {
     public static void main(String[] args) {
@@ -14,6 +15,7 @@ public class main {
         ArrayList<Integer> startingArray = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13));
         int rolledNumber = -1;
         String luckyGuess;
+        int randomInt;
 
         while (startingArray.size() > 1) {
             while (!startingArray.contains(rolledNumber)) {
@@ -39,18 +41,18 @@ public class main {
             System.out.println(higherWeight);
             System.out.println(lowerWeight);
 
-            if (higherWeight > lowerWeight) {
-                System.out.println("It is most likely to be higher!");
-            } else if (lowerWeight > higherWeight) {
-                System.out.println("It is most likely to be lower!");
+            double randomDouble = rand.nextDouble();
+            if (Math.abs(randomDouble - lowerWeight) < Math.abs(randomDouble - higherWeight)) {
+                System.out.println("Guess lower!");
+            } else if (Math.abs(randomDouble - higherWeight) < Math.abs(randomDouble - lowerWeight)) {
+                System.out.println("Guess higher!");
             } else {
-                int randomInt = rand.nextInt(2);
+                randomInt = rand.nextInt(2);
                 if (randomInt == 0) {
-                    luckyGuess = "lower?";
+                    System.out.println("Guess lower!");
                 } else {
-                    luckyGuess = "higher?";
+                    System.out.println("Guess higher!");
                 }
-                System.out.println("It's a fifty... I guess " + luckyGuess);
             }
         }
         
